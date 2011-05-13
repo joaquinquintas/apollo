@@ -2,6 +2,13 @@
 
 {% block header %}
 <script type="text/javascript">
+   
+
+$('#company_name').keyup(function() {
+    var th = $(this);
+    $.get('/company', {"name":th}, function(data){alert(data)});
+
+});
     $(document).ready(function() {
 //        TODO: ajax call is not working
 //        $("#sign_up_form").get('/company', function(data) {
@@ -33,7 +40,7 @@
     First name <input id="first_name" name="first_name" type="text" placeholder="First name" required autofocus/>
     Last name <input name="last_name" type="text" placeholder="Last name" required/>
     Email <input name="email" type="email" placeholder="Email" required/>
-    Company <input name="company" type="text" placeholder="Company" required on/>
+    Company <input id="company_name" name="company" type="text" placeholder="Company" required on/>
     <br/>
     Username <input name="username" type="text" placeholder="Username" required/>
     Password <input id="password" name="password" type="password" placeholder="Password" required/>
