@@ -3,18 +3,11 @@
 {% block header %}
 <script type="text/javascript">
     $(document).ready(function() {
-        $.ajax({
-            type: 'GET',
-            url: "/company/",
-            data: {
-                key: "value"
-            },
-            dataType: "xml",
-            success: function(xml){
-                var clientid = $(xml).find('client_id').eq(1).text();
-                alert(clientid);
-            }  
-        });
+//        TODO: ajax call is not working
+//        $("#sign_up_form").get('/company', function(data) {
+//            $('.result').html(data);
+//            alert('Load was performed.');
+//        }); 
         $("#sign_up_form").validate({
             rules: {
               company: {
