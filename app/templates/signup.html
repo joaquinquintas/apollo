@@ -15,6 +15,12 @@ $('#company_name').keyup(function() {
 //            $('.result').html(data);
 //            alert('Load was performed.');
 //        }); 
+$('#company_name').keyup(function() {
+    var th = $(this);
+    alert(th);
+    $.get('/company', {"name":th}, function(data){alert(data)});
+
+});
         $("#sign_up_form").validate({
             rules: {
               company: {
