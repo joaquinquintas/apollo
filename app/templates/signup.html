@@ -4,10 +4,16 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $.ajax({
-            type: 'GET',
-            dataType: "xml",
-            url: "/company/",
-            success: function(data) {alert('Company Name exists')}
+            type: 'GET',
+            url: "/company/",
+            data: {
+                key: "value"
+            },
+            dataType: "xml",
+            success: function(xml){
+                var clientid = $(xml).find('client_id').eq(1).text();
+                alert(clientid);
+            }  
         });
         $("#sign_up_form").validate({
             rules: {

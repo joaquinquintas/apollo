@@ -15,12 +15,17 @@
 # limitations under the License.
 #
 from app.controllers.MainHandler import MainHandler
+from app.controllers.SignupHandler import SignupHandler
+from app.controllers.CompanyHandler import CompanyHandler
+
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
 # Put route information here
 router = [
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/company', CompanyHandler),
+    ('/signup', SignupHandler)
 ]
 
 def main():
