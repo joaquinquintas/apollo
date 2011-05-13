@@ -16,4 +16,4 @@ class CompanyHandler(webapp.RequestHandler):
         #     self.response.out.write("False")
         #else:
         #    self.response.out.write("True")
-        set.response.out.write("True")
+        self.response.out.write("False")
