@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block header %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.ajax({
+            type: 'GET',
+            dataType: "xml",
+            url: "/company/",
+            success: function(data) {alert('Company Name exists')}
+        });
+        $("#sign_up_form").validate({
+            rules: {
+              company: {
+                  required: true, minlength: 5
+              },
+              password: {
+                  required: true, minlength: 5
+              },
+              password_confirmation: {
+                  required: true, equalTo: "#password", minlength: 5
+              }
+            },
+            messages: {
+                password_confirmation: "Password is not the same"
+            }
+        });
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+<form id="sign_up_form" method="post" target="/signup">
+    First name <input id="first_name" name="first_name" type="text" placeholder="First name" required autofocus/>
+    Last name <input name="last_name" type="text" placeholder="Last name" required/>
+    Email <input name="email" type="email" placeholder="Email" required/>
+    Company <input name="company" type="text" placeholder="Company" required on/>
+    <br/>
+    Username <input name="username" type="text" placeholder="Username" required/>
+    Password <input id="password" name="password" type="password" placeholder="Password" required/>
+    Password Confirmation <input id="password_confirmation" name="password_confirmation" type="password"
+                                 placeholder="Enter your password again for verification" required on/>
+    <br/>
+    Card number <input name="card_number" type="number" placeholder="Card number" required/>
+    Expires on <input name="card_expiration" type="month" placeholder="Expires on" required/>
+    Billing ZIP <input name="billing_zip" type="number" placeholder="Billing ZIP" required/>
+    <br/>
+    <input type="submit" value="Create my Account"/>
+</form>
+{% endblock %}
